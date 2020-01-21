@@ -2,7 +2,17 @@
 function ConversionPart3() {
   var floatToConvert = parseFloat(document.getElementById("3_Float").value);
 
+  var mantissa;
+  var negative = floatToConvert<0;
+  var rightHalf = Math.abs(floatToConvert % 1);
+  var leftHalf = Math.abs(Math.trunc(floatToConvert));
 
+
+  var left = "";
+ while (leftHalf != 0) {
+   left = assignChar(leftHalf % 2) + left;
+   leftHalf = Math.trunc(leftHalf / 2);
+ }
 
   var output32BitScientificNotation = "10100011001100001000010100101010";
 

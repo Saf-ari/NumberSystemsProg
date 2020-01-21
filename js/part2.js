@@ -1,12 +1,38 @@
 function ConversionPart2() {
-    //
-    var SignedDecimalInt = parseInt(document.getElementById("2_SignedInt").value);
+
+    var SignedDecimalInt = document.getElementById("2_SignedInt").value;
+    var number = Math.abs(parseInt(document.getElementById("2_SignedInt").value));
+
+    var outputValue = "";
+    while (number != 0)
+    {
+      outputValue = number % 2 + outputValue;
+      number = Math.trunc(number / 2);
+    }
+
+
+    while (outputValue.length<32){
+      outputValue = ""+ outputValue;
+    }
 
 
 
-    var outputValue = "010110101000110110011101";
-    var outputValueTwosComplement = "101001010111001001100011";
+    
 
-    // Show the output on the screen
-    FormatAndShowOutput([outputValue, outputValueTwosComplement, SignedDecimalInt], 2);
+    var outputValueTwosComplement = "";
+
+    for (var i =0; i< outputValue.length; i++){
+      if (outputValue.charAt(i)==0){
+        outputValueTwosComplement += 1;
+      }
+      else {
+        outputValueTwosComplement += 0;
+      }
+    }
+
+
+
+
+       FormatAndShowOutput([outputValue, outputValueTwosComplement, SignedDecimalInt], 2);
+
 }
