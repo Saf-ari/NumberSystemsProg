@@ -59,15 +59,26 @@ function ConversionPart2() {
 
 
 
-    // part 2
+    // negate;
     for (var i = 0; i < signedBinary.length; i++){
-//      outputValueTwosComplement = "" + signedBinary.charAt(i) + outputValueTwosComplement;
+
       if (signedBinary.charAt(i)== 0){
         outputValueTwosComplement = "" + outputValueTwosComplement + "1";
       }
       else{
         outputValueTwosComplement = "" + outputValueTwosComplement +"0";
       }
+    }
+    //add one
+    if (outputValueTwosComplement.charAt(outputValueTwosComplement.length) == "0"){
+      outputValueTwosComplement.charAt(outputValueTwosComplement.length) = "1";
+    }
+    else{
+      var num = outputValueTwosComplement.length;
+      while (outputValueTwosComplement.charAt(num) == "1"){
+        outputValueTwosComplement.charAt(num) = "0";
+      }
+      outputValueTwosComplement.charAt(num) = "1";
     }
 
 
